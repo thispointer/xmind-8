@@ -21,7 +21,8 @@ The [Parrot Security Mate 4.10 or higher](https://www.parrotsec.org/download/) a
     ```
 
 ## Installation Steps
-1. Download 
+All commands have to be carried out as root or sudo root. In case typing in sudo in fron of each command is too cumbersome, execute sudo -i  for becoming root. Do not forget to exit your session as root!
+1. Download [XMind 8 for Linux](https://www.xmind.net/download/xmind8).
 2. Create an /opt/xmind/ folder
     ```
     sudo mkdir -p /opt/xmind/
@@ -33,9 +34,9 @@ The [Parrot Security Mate 4.10 or higher](https://www.parrotsec.org/download/) a
    ```
 4. Install the needed fonts of XMind 8
    ```   
-    mkdir -p /usr/share/fonts/xmind/
-    cp -R /opt/xmind/fonts/* /usr/share/fonts/xmind/
-    fc-cache -f
+    sudo mkdir -p /usr/share/fonts/xmind/
+    sudo cp -R /opt/xmind/fonts/* /usr/share/fonts/xmind/
+    sudo fc-cache -f
    ```
 6. Create a symlink from /opt/xmind/xmind.sh to /usr/local/bin/xmind.
 
@@ -45,8 +46,8 @@ The [Parrot Security Mate 4.10 or higher](https://www.parrotsec.org/download/) a
 
 9. Copy configuration files to your home folder: 
     ```
-    cp -R /opt/xmind/XMind_amd64/configuration to ~/.config/xmind
-    cp -R /opt/xmind/XMind_amd64/p2 to ~/.config/xmind
+    sudo cp -R /opt/xmind/XMind_amd64/configuration to ~/.config/xmind
+    sudo cp -R /opt/xmind/XMind_amd64/p2 to ~/.config/xmind
    ```
 11. Edit /opt/xmind/XMind_64/XMind.ini to change paths in lines 2 and 4 as follows:
     ```
