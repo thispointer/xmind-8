@@ -23,23 +23,26 @@ The [Parrot Security Mate 4.10 or higher](https://www.parrotsec.org/download/) a
 ## Installation Steps
 All commands have to be carried out as root or sudo root. In case typing in sudo in fron of each command is too cumbersome, execute sudo -i  for becoming root. Do not forget to exit your session as root!
 1. Download [XMind 8 for Linux](https://www.xmind.net/download/xmind8).
-2. Create an /opt/xmind/ folder
+2. Create the /opt/xmind/ folder
     ```
     sudo mkdir -p /opt/xmind/
     ```
-
-3. Unzip the the downloaded Xmind 8 zip package:
+3. Unzip the downloaded Xmind 8 zip package:
    ```
    sudo unzip -q xmind-8-update9-linux.zip -d /opt/xmind/
    ```
-4. Install the needed fonts of XMind 8
+4. Clone or download from github the files xmind.sh, xmind.svg, xmind.xml and xmind8.desktop. Assumption is that all following commands are executed from the folder to which the above-mentioned github files have been downloaded to.
+
+5. Install the needed fonts of XMind 8
    ```   
     sudo mkdir -p /usr/share/fonts/xmind/
     sudo cp -R /opt/xmind/fonts/* /usr/share/fonts/xmind/
     sudo fc-cache -f
    ```
 6. Create a symlink from /opt/xmind/xmind.sh to /usr/local/bin/xmind.
-
+    ```
+    sudo ln -s /opt/xmind/xmind.sh /usr/local/bin/xmind
+    ```
 7. Create ~/.config/xmind/configuration in your home directory.
     ```
     mkdir -p ~/.config/xmind/configuration/
@@ -55,12 +58,19 @@ All commands have to be carried out as root or sudo root. In case typing in sudo
    ```
 10. Copy xmind.desktop to /usr/share/applications
     ```
-    cp /opt/xmind/xmind8.desktop /usr/share/applications/
+    sudo cp /opt/xmind/xmind8.desktop /usr/share/applications/
     ```
 11. Edit /opt/xmind/XMind_64/XMind.ini to change paths in lines 2 and 4 as follows:
     ```
     ./configuration to @user.home/.config/xmind/configuration
     ../workspace to @user.home/.config/xmind/workspace
     ```
-7. Create a symlink from /opt/xmind/xmind.xpm to /usr/share/pixmaps/xmind.xpm.
+12. Update MIME database and icons
+    ```
+    sudo cp xmind.xml /usr/share/mime/packages
+    sudo update-mime-data /usr/share/mime
+    sudo cp xmind.svg /usr/share/icons/hicolor/scalable/apps
+    sudo cp xmind.svg /usr/share/icons/hicolor/scalable/mimetypes
+    sudo gtk-update-icon-cache --quiet /usr/share/icons/hicolor/-f
+    ```
 
