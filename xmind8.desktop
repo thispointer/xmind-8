@@ -1,0 +1,9 @@
+[Desktop Entry]
+Comment=XMind 8 mind mapping application
+Exec=/opt/xmind/XMind_amd64 %F
+Name=XMind
+Terminal=false
+Type=Application
+Categories=Office;
+Icon=xmind
+MimeType=application/mindmap

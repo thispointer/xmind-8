@@ -40,18 +40,27 @@ All commands have to be carried out as root or sudo root. In case typing in sudo
    ```
 6. Create a symlink from /opt/xmind/xmind.sh to /usr/local/bin/xmind.
 
-7. Create a symlink from /opt/xmind/xmind.xpm to /usr/share/pixmaps/xmind.xpm.
-
+7. Create ~/.config/xmind/configuration in your home directory.
+    ```
+    mkdir -p ~/.config/xmind/configuration/
+    ```
 8. Create ~/.config/xmind/workspace in your home directory.
-
+    ```
+    mkdir -p ~/.config/xmind/workspace/
+    ```
 9. Copy configuration files to your home folder: 
     ```
-    sudo cp -R /opt/xmind/XMind_amd64/configuration to ~/.config/xmind
-    sudo cp -R /opt/xmind/XMind_amd64/p2 to ~/.config/xmind
+    cp -R /opt/xmind/XMind_amd64/configuration ~/.config/xmind
+    cp -R /opt/xmind/XMind_amd64/p2 ~/.config/xmind
    ```
+10. Copy xmind.desktop to /usr/share/applications
+    ```
+    cp /opt/xmind/xmind8.desktop /usr/share/applications/
+    ```
 11. Edit /opt/xmind/XMind_64/XMind.ini to change paths in lines 2 and 4 as follows:
     ```
     ./configuration to @user.home/.config/xmind/configuration
     ../workspace to @user.home/.config/xmind/workspace
     ```
+7. Create a symlink from /opt/xmind/xmind.xpm to /usr/share/pixmaps/xmind.xpm.
 
